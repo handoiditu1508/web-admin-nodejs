@@ -1,5 +1,7 @@
 var express = require("express");
 
+var fs = require("fs");//file stream
+
 var app = express();
 
 // set up handlebars view engine
@@ -7,7 +9,7 @@ var hbs = require('hbs');
 app.set("view engine", "html");
 app.engine('html', hbs.__express);
 
-//set port
+//set port 3000
 app.set("port", process.env.PORT || 3000);
 
 //set default layout
@@ -16,28 +18,154 @@ app.set('view options', { layout: 'layouts/main' });
 //static files directory
 app.use(express.static(__dirname + "/public"));
 
+//register partial directory
+hbs.registerPartials(__dirname + '/views/partials');
+
+//init partials object
+app.use(function (req, res, next) {
+	if (!res.locals.partials)
+		res.locals.partials = {};
+	next();
+});
+
+//data for sidebar partial
+app.use(function (req, res, next) {
+	res.locals.partials.sidebarViewModel = getSidebarViewModel_Test();
+	next();
+});
+
 //routes
-app.get('/', function (req, res) {
-	res.render("home");
-});
-app.get('/about', function (req, res) {
-	res.render("about");
-});
+require("./controllers/home-controller")(app);
 
-//custom 404 page
-app.use(function (req, res) {
-	res.status(404);
-	res.render("404", { layout: null });
-});
-
-//custom 500 page
-app.use(function (err, req, res, next) {
-	console.error(err.stack);
-	res.status(500);
-	res.render("500", { layout: null });
-});
+require("./controllers/status-controller")(app);
 
 app.listen(app.get("port"), function () {
 	console.log("Express started on http://localhost:"
 		+ app.get("port") + " press Ctrl-C to terminate.");
 });
+
+//get test data function
+function getSidebarViewModel_Test(){
+	return {
+		menuData: [
+			{
+				icon: "fab fa-product-hunt",
+				text: "Product Types",
+				subMenu:{
+					id: "product-type-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fa fa-list",
+				text: "Categories",
+				subMenu:{
+					id: "category-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fab fa-product-hunt",
+				text: "Products",
+				subMenu:{
+					id: "product-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fa fa-user-tag",
+				text: "Sellers",
+				subMenu:{
+					id: "seller-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fa fa-user",
+				text: "Customers",
+				subMenu:{
+					id: "customer-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fa fa-receipt",
+				text: "Orders",
+				subMenu:{
+					id: "order-nav",
+					data: [
+						{
+							text: "Lists",
+							url: ""
+						},
+						{
+							text: "Create",
+							url: ""
+						}
+					]
+				}
+			},
+			{
+				icon: "fa fa-user-tie",
+				text: "Admins",
+				subMenu:{
+					id: "",
+					data: []
+				}
+			},
+			{
+				icon: "fa fa-address-card",
+				text: "Contact",
+				subMenu:{
+					id: "",
+					data: []
+				}
+			}
+		]
+	}
+}

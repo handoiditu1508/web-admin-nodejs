@@ -1,10 +1,178 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Meadowlark Travel</title>
+		<title>Title</title>
+		<link rel="icon" href="/img/logo.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+
+		<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./lib/fontawesome/css/all.min.css" />
+		<link rel="stylesheet" href="./css/layout.css" />
+
+		<script src="./lib/jquery/jquery.min.js"></script>
+		<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="./js/layout.js"></script>
 	</head>
 	<body>
-		<header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
-	    {{{body}}}
+		<header class="header">
+			<nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
+				<a class="navbar-brand p-0 mr-5 text-light" href="#">E-Commerce</a>
+				<div class="collapse navbar-collapse flex-row-reverse">
+					<ul class="navbar-nav">
+						<!--bell-->
+						<li class="nav-item dropdown messages-menu">
+							<a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-bell"></i>
+								<span class="label label-success bg-success">10</span>
+							</a>
+							<div class="dropdown-menu">
+								<ul class="dropdown-menu-over list-unstyled">
+									<li class="header-ul text-center">You have 4 messages</li>
+									<li>
+										<!-- inner menu: contains the actual data -->
+										<ul class="menu list-unstyled">
+											<li>
+												<!-- start message -->
+												<a href="#">
+													<div class="pull-left">
+														<img src="http://via.placeholder.com/160x160" class="rounded-circle  " alt="User Image">
+													</div>
+													<h4>
+														Support Team
+														<small><i class="fa fa-clock-o"></i> 5 mins</small>
+													</h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+											<!-- end message -->
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="http://via.placeholder.com/160x160" class="rounded-circle " alt="User Image">
+													</div>
+													<h4>
+														AdminLTE Design Team
+														<small><i class="fa fa-clock-o"></i> 2 hours</small>
+													</h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="http://via.placeholder.com/160x160" class="rounded-circle " alt="User Image">
+													</div>
+													<h4>
+														Developers
+														<small><i class="fa fa-clock-o"></i> Today</small>
+													</h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="http://via.placeholder.com/160x160" class="rounded-circle " alt="User Image">
+													</div>
+													<h4>
+														Sales Department
+														<small><i class="fa fa-clock-o"></i> Yesterday</small>
+													</h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<div class="pull-left">
+														<img src="http://via.placeholder.com/160x160" class="rounded-circle " alt="User Image">
+													</div>
+													<h4>
+														Reviewers
+														<small><i class="fa fa-clock-o"></i> 2 days</small>
+													</h4>
+													<p>Why not buy a new awesome theme?</p>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer-ul text-center"><a href="#">See All Messages</a></li>
+								</ul>
+							</div>
+						</li>
+						<!--bell-->
+						<!--envelope-->
+						<li class="nav-item dropdown notifications-menu">
+							<a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-envelope"></i>
+								<span class="label label-warning bg-warning">10</span>
+							</a>
+							<div class="dropdown-menu">
+								<ul class="dropdown-menu-over list-unstyled">
+									<li class="header-ul text-center">You have 10 notifications</li>
+									<li>
+										<!-- inner menu: contains the actual data -->
+										<ul class="menu list-unstyled">
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-aqua"></i> 5 new members joined today
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+													page and may cause design problems
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fa fa-users text-red"></i> 5 new members joined
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fa fa-shopping-cart text-green"></i> 25 sales made
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fa fa-user text-red"></i> You changed your username
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="footer-ul text-center"><a href="#">View all</a></li>
+								</ul>
+							</div>
+						</li>
+						<!--envelope-->
+						<!--user-->
+						<li class="nav-item dropdown  user-menu">
+							<a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">
+								<span class="hidden-xs">bootstrap develop</span>
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">Personal Information</a>
+								<a class="dropdown-item" href="#">Sign out</a>
+							</div>
+						</li>
+						<!--user-->
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="main row ml-0 mr-0">
+			<!--left-->
+			<div class="col-2 pr-0 pl-0 bg-dark">
+				{{> sidebar}}
+			</div>
+			<!--left-->
+			<!--right-->
+			<div class="col-10 pl-0 pr-0">
+				{{{body}}}
+			</div>
+			<!--right-->
+		</div>
 	</body>
 </html>

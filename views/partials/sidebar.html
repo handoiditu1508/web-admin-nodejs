@@ -1,0 +1,29 @@
+<div class="sidebar">
+	<div class="user-panel bg-dark">
+		<div class="image float-left">
+			<img src="http://via.placeholder.com/160x160" class="rounded-circle" alt="User Image">
+		</div>
+		<div class="info float-left ml-2">
+			<p>bootstrap develop</p>
+			<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+		</div>
+	</div>
+	<ul class="list-sidebar bg-dark">
+		{{#if partials.sidebarViewModel}}
+			{{#each partials.sidebarViewModel.menuData}}
+				<li>
+					<a href="#" data-toggle="collapse" data-target="#{{subMenu.id}}" class="collapsed active">
+						<i class="{{icon}}"></i>
+						<span class="nav-label">{{text}}</span>
+						<span class="fa fa-chevron-left float-right"></span>
+					</a>
+					<ul class="sub-menu collapse" id="{{subMenu.id}}">
+						{{#each subMenu.data}}
+							<li><a href="{{url}}">{{text}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+			{{/each}}
+		{{/if}}
+	</ul>
+</div>
