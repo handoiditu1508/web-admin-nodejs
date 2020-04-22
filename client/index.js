@@ -1,5 +1,7 @@
 var express = require("express");
 
+var consts = require("./consts");
+
 var app = express();
 
 var hbs = require('hbs');
@@ -22,7 +24,7 @@ function config(){
 	app.engine('html', hbs.__express);
 
 	//set port 3000
-	app.set("port", process.env.PORT || 3000);
+	app.set("port", process.env.PORT || consts.port);
 
 	//set default layout
 	app.set('view options', { layout: 'layouts/main' });
